@@ -22,11 +22,34 @@ are listed below.
 ## Backends
 
 ### Running the server that expose the REST API
-```$ make serve```
-
+```shell
+$ make serve
 ```
 
+### Installing the application using the Django manager.py script
+
+```shell
+python src/manage.py migrate
+
 ```
+```shell
+$ python src/manage.py runserver
+```
+
+### Fixtures
+The API comes with some data dumped by default that might be useful for testing
+purpose.
+
+Install fixtures by runnign the command:
+```shell
+$ python src/manage.py loaddata topics users
+```
+
+To backup your test fixtures use the following command:
+```shell
+$ python src/manage.py dumpdata auth.User --indent 4 > src/api/fixtures/users.json
+```
+
 Then the API is exposed in your localhost through the port 8000
 ### Authentication
 The API provides three default authentication. However, any Django REST
@@ -66,20 +89,6 @@ $ curl -H "Authorization: JWT <your_token>" http://localhost:8000/protected-url/
 
 Visit [REST framework JWT Auth](http://getblimp.github.io/django-rest-framework-jwt/)
 for a detailed explanation about Django REST Framework and JWT.
-
-### Fixtures
-The API comes with some data dumped by default that might be useful for testing
-purpose.
-
-Install fixtures by runnign the command:
-```shell
-$ python src/manage.py loaddata topics users
-```
-
-To backup your test fixtures use the following command:
-```shell
-$ python src/manage.py dumpdata auth.User --indent 4 > src/api/fixtures/users.json
-```
 
 
 ## Clients

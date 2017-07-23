@@ -19,6 +19,7 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Profile
+        depth = 1
         fields = ('url', 'id', 'full_name', 'email', 'current_position',
                   'about_you', 'favorite_topics', 'user', 'user_url')
 
