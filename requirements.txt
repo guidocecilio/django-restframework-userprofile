@@ -1,0 +1,9 @@
+Django>=1.11.3
+django-cors-headers>=2.1.0
+django-filter>=1.0.4
+djangorestframework>=3.6.3
+djangorestframework-jwt>=1.11.0
+gunicorn>=19.7.1
+Markdown>=2.6.8
+PyJWT>=1.5.2
+pytz>=2017.2

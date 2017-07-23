@@ -1,0 +1,74 @@
+[
+  {
+    "model": "api.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Business",
+      "description": ""
+    }
+  },
+  {
+    "model": "api.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Energy",
+      "description": ""
+    }
+  },
+  {
+    "model": "api.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Engineering",
+      "description": ""
+    }
+  },
+  {
+    "model": "api.topic",
+    "pk": 4,
+    "fields": {
+      "name": "Fine Arts",
+      "description": ""
+    }
+  },
+  {
+    "model": "api.topic",
+    "pk": 5,
+    "fields": {
+      "name": "Health and Medicinie",
+      "description": ""
+    }
+  },
+  {
+    "model": "api.topic",
+    "pk": 6,
+    "fields": {
+      "name": "Humanities",
+      "description": ""
+    }
+  },
+  {
+    "model": "api.topic",
+    "pk": 7,
+    "fields": {
+      "name": "Mathematics",
+      "description": ""
+    }
+  },
+  {
+    "model": "api.topic",
+    "pk": 8,
+    "fields": {
+      "name": "Teaching and Education",
+      "description": ""
+    }
+  },
+  {
+    "model": "api.topic",
+    "pk": 9,
+    "fields": {
+      "name": "Science",
+      "description": ""
+    }
+  }
+]
