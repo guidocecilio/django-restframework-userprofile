@@ -5,6 +5,7 @@ STATIC_DIR=clients
 ifndef DJANGO_DB
     DJANGO_DB=db.sqlite
 endif
+
 PROJECT_NAME=public_profile
 DJANGO_MANAGE=src/manage.py
 
@@ -73,3 +74,6 @@ env_clean: clean
 
 clean_all: clean env_clean
 	- @rm *.sqlite
+
+setup: build_reqs fixtures
+run: serve

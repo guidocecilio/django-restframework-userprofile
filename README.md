@@ -10,32 +10,12 @@ Application.
 This project uses a Makefile for various tasks. Some of the available tasks
 are listed below.
 
-* `make clean` - Clean build artifacts out of your project
-* `make test` - Run Unit Tests (using nose)
-* `make sdist` - Build a Python source distribution
-* `make rpm` - Build an RPM
-* `make docs` - Build the Sphinx documentation
-* `make lint` - Get a pep8 compliance report about your code
-* `make artifacts` - Build an RPM and the Python source distribution.
-* `make` - Equivalent to `make test lint docs artifacts`
+* `make setup`  - Setup the application (Creates venv, db, and loads fixtures)
+* `make run`    - Run the server
+* `make test`   - Run Unit Tests (using nose)
+* `make lint`   - Get a pep8 compliance report about your code
 
 ## Backends
-
-### Running the server that expose the REST API
-```shell
-$ make serve
-```
-
-### Installing the application using the Django manager.py script
-
-```shell
-python src/manage.py migrate
-
-```
-```shell
-$ python src/manage.py runserver
-```
-
 ### Fixtures
 The API comes with some data dumped by default that might be useful for testing
 purpose.
