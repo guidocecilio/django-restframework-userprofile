@@ -105,4 +105,7 @@ ENV/
 .idea/
 
 # db
-db.sqlite3
+db.sqlite
+
+# pep
+pep8.out

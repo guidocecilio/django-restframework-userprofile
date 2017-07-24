@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'public_profile.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.getenv('DJANGO_SQLITE_PATH', 'db.sqlite'),
     }
 }
 
@@ -144,8 +144,6 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-FIXTURE_DIRS = []
-
 JWT_AUTH = {
     'JWT_ENCODE_HANDLER':
     'rest_framework_jwt.utils.jwt_encode_handler',
@@ -180,3 +178,5 @@ JWT_AUTH = {
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
     'JWT_AUTH_COOKIE': None,
 }
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
