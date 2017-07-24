@@ -22,27 +22,21 @@ else
 	IN_ENV=. $(ENV_DIR)/bin/activate &&
 endif
 
-all: test lint artifacts
+all: test lint
 
 env: $(ENV_DIR)
 
-test:
-	$(IN_ENV) $(WITH_CONTEXT) coverage run $(DJANGO_MANAGE) test
-	$(IN_ENV) $(WITH_CONTEXT) coverage combine
-	$(IN_ENV) $(WITH_CONTEXT) coverage xml -i
+test: build_reqs
+	$(IN_ENV) $(WITH_CONTEXT) coverage run --source=src $(DJANGO_MANAGE) test
 	$(IN_ENV) $(WITH_CONTEXT) coverage report -m
-
-artifacts: build_reqs sdist
+	$(IN_ENV) $(WITH_CONTEXT) coverage xml
 
 $(ENV_DIR):
 	virtualenv -p $(PYTHON) $(ENV_DIR)
 
 build_reqs: env
-	$(IN_ENV) pip install herodotus sphinx pep8 coverage nose
+	$(IN_ENV) pip install herodotus sphinx pep8 coverage django-nose
 	$(IN_ENV) pip install -r requirements.txt
-
-sdist: build_reqs
-	$(IN_ENV) python setup.py sdist
 
 lint: pep8
 
@@ -68,15 +62,6 @@ serve:
 	$(IN_ENV) $(WITH_CONTEXT) python $(DJANGO_MANAGE) runserver
 
 clean:
-	- @rm -rf BUILD
-	- @rm -rf BUILDROOT
-	- @rm -rf RPMS
-	- @rm -rf SRPMS
-	- @rm -rf SOURCES
-	- @rm -rf docs/build
-	- @rm -rf src/*.egg-info
-	- @rm -rf build
-	- @rm -rf dist
 	- @rm -f .coverage
 	- @rm -f test_results.xml
 	- @rm -f coverage.xml
