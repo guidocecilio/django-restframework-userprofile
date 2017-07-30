@@ -1,0 +1,46 @@
+[
+{
+    "model": "api.profile",
+    "pk": 1,
+    "fields": {
+        "current_position": "Solutions Architect & Senior Developer",
+        "about_you": "",
+        "user": 1,
+        "favorite_topics": [
+            2,
+            3,
+            7
+        ]
+    }
+},
+{
+    "model": "api.profile",
+    "pk": 2,
+    "fields": {
+        "current_position": "Junior Developer",
+        "about_you": "",
+        "user": 2,
+        "favorite_topics": [
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "api.profile",
+    "pk": 3,
+    "fields": {
+        "current_position": "Senior Developer",
+        "about_you": "",
+        "user": 3,
+        "favorite_topics": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            8
+        ]
+    }
+}
+]

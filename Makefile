@@ -50,7 +50,7 @@ flake8: build_reqs
 migrate:
 	$(IN_ENV) $(WITH_CONTEXT) python $(DJANGO_MANAGE) migrate
 
-migrations: db.sqlite
+migrations:
 	$(IN_ENV) $(WITH_CONTEXT) python $(DJANGO_MANAGE) makemigrations
 
 fixtures: migrate

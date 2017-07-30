@@ -9,21 +9,23 @@ from django.dispatch import receiver
 
 # Create your models here.
 class Topic(models.Model):
-  name = models.CharField(max_length=12)
-  description = models.CharField(max_length=100, blank=True)
+    name = models.CharField(max_length=12)
+    description = models.CharField(max_length=100, blank=True)
+
+    class Meta:
+        unique_together = ('name',)
+        ordering = ['name']
+
+    def __unicode__(self):
+        return '{0}: {1}'.format(self.name, self.description)
 
 
 class Profile(models.Model):
-    # full_name = models.CharField(max_length=128)
-    # email = models.CharField(max_length=100)
     current_position = models.CharField(max_length=64)
     about_you = models.CharField(max_length=255, blank=True, default='')
-    favorite_topics = models.ManyToManyField(
-        Topic,
-        # through='FavoriteTopics',
-        # through_fields=('topic', 'userprofile'),
-    )
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    favorite_topics = models.ManyToManyField(Topic,)
+    user = models.OneToOneField(User,
+                                on_delete=models.CASCADE)
 
     # class Meta:
     #     ordering = ('created',)

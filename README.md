@@ -28,6 +28,8 @@ $ python src/manage.py loaddata topics users
 To backup your test fixtures use the following command:
 ```shell
 $ python src/manage.py dumpdata auth.User --indent 4 > src/api/fixtures/users.json
+$ python src/manage.py dumpdata api.topic --indent 4 > src/api/fixtures/topics.json
+$ python src/manage.py dumpdata api.profile --indent 4 > src/api/fixtures/profiles.json
 ```
 
 Then the API is exposed in your localhost through the port 8000
@@ -71,6 +73,14 @@ Visit [REST framework JWT Auth](http://getblimp.github.io/django-rest-framework-
 for a detailed explanation about Django REST Framework and JWT.
 
 
+### Debug
+#### Debugging unit test
+To debug the unit test code, it is recommended to use the virtual environment
+and the following command to append the conole output and allow the developer
+to print data to the console output. e.g:
+```shell
+(.env) $ python src/manage.py test -s
+```
 ## Clients
 
 Client side applications are located within the `clients` folder in the root of
