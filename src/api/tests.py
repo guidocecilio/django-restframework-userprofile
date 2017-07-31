@@ -130,4 +130,6 @@ class TopicResourceTests(APITestCase):
             'favorite_topics': map(lambda x: x['url'], topics)
         }
         response = self.client.put(url, data, **self.header)
+        print response
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
