@@ -16,6 +16,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class TopicSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
+        depth = 1
         model = Topic
         fields = ('url', 'id', 'name', 'description')
 
@@ -24,7 +25,7 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     user_url = serializers.HyperlinkedIdentityField(view_name='user-detail')
     user = serializers.ReadOnlyField(source='user.id')
 
-    # id = serializers.IntegerField(source='pk', read_only=True)
+    id = serializers.IntegerField(source='pk', read_only=True)
     username = serializers.CharField(source='user.username', read_only=True)
     email = serializers.CharField(source='user.email')
     first_name = serializers.CharField(source='user.first_name')
@@ -36,15 +37,16 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     #     read_only=False,
     #     queryset=Topic.objects.all()
     # )
-    favorite_topics = serializers.HyperlinkedRelatedField(
-        many=True,
-        read_only=False,
-        queryset=Topic.objects.all(),
-        view_name='topic-detail'
-    )
+    # favorite_topics = serializers.HyperlinkedRelatedField(
+    #     many=True,
+    #     read_only=False,
+    #     queryset=Topic.objects.all(),
+    #     view_name='topic-detail'
+    # )
 
     class Meta:
         model = Profile
+        depth = 1
         fields = ('url', 'id', 'username', 'email', 'first_name', 'last_name',
                   'current_position', 'about_you', 'favorite_topics', 'user',
                   'user_url')
