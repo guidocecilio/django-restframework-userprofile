@@ -95,4 +95,6 @@ application.
 
 ### React Web Application
 For more details about how to deploy or extend the web app please refer to the
-__README.md__ file within `/clients/webapp`.
+__README.md__ file within client repository code.
+
+[React User Profile](https://github.com/guidocecilio/react-userprofile)
